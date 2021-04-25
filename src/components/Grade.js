@@ -12,6 +12,15 @@ const Grade = (props) => {
   const [currentGrade, setCurrentGrade] = useState(initialGradeState);
   const [message, setMessage] = useState('');
 
+  // const getGrade = async (id) => {
+  //   try {
+  //     const response = await GradeDataService.get(id);
+  //     setCurrentGrade(response.data);
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const getGrade = (id) => {
     GradeDataService.get(id)
       .then((response) => {
