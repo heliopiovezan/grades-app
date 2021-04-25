@@ -13,10 +13,16 @@ const create = (data) => {
 };
 
 const update = (id, data) => {
+  console.log(data);
+  // // prettier-ignore
+  // const teste = { "name": 'yahoo' };
+  // console.log(typeof teste);
+
   return http.put(`/grade/${id}`, data);
 };
 
 const remove = (id) => {
+  console.log(id);
   return http.delete(`/grade/${id}`);
 };
 

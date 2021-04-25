@@ -35,6 +35,7 @@ const GradeList = () => {
   };
 
   const setActiveGrade = (grade, index) => {
+    console.log(grade._id);
     setCurrentGrade(grade);
     setCurrentIndex(index);
   };
@@ -135,7 +136,7 @@ const GradeList = () => {
             </div>
 
             <Link
-              to={'/grade/' + currentGrade.id}
+              to={'/grade/' + currentGrade._id}
               className="badge badge-warning"
             >
               Edit

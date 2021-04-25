@@ -18,6 +18,7 @@ const AddGrade = () => {
   };
 
   const saveGrade = () => {
+    console.log(grade);
     var data = {
       name: grade.name,
       subject: grade.subject,

@@ -9,6 +9,14 @@ const Grade = (props) => {
     type: '',
     value: '',
   };
+  // const Grade = (props) => {
+  //   const initialGradeState = {
+  //     id: null,
+  //     name: '',
+  //     subject: '',
+  //     type: '',
+  //     value: '',
+  //   };
   const [currentGrade, setCurrentGrade] = useState(initialGradeState);
   const [message, setMessage] = useState('');
 
@@ -42,7 +50,14 @@ const Grade = (props) => {
   };
 
   const updateGrade = () => {
-    GradeDataService.update(currentGrade.id, currentGrade)
+    console.log(currentGrade._id);
+    console.log(currentGrade);
+    // const newData = currentGrade;
+    let newData = `{"name": "${currentGrade.name}", "subject": "${currentGrade.subject}", "type": "${currentGrade.type}","value": ${currentGrade.value}}`;
+    newData = JSON.parse(newData);
+    // lastModified: new Date(),
+    // GradeDataService.update(currentGrade._id, currentGrade)
+    GradeDataService.update(currentGrade._id, newData)
       .then((response) => {
         setMessage('The grade was updated successfully!');
       })
@@ -52,7 +67,7 @@ const Grade = (props) => {
   };
 
   const deleteGrade = () => {
-    GradeDataService.remove(currentGrade.id)
+    GradeDataService.remove(currentGrade._id)
       .then((response) => {
         props.history.push('/grade');
       })
